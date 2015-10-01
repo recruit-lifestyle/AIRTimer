@@ -2,22 +2,6 @@
 
 Restartable NSTimer in Swift.
 
-## Requirements
-iOS8.0+
-Xcode7.0+
-
-## Installation
-### CococaPods
-
-```ruby
-pod 'AIRTimer'
-```
-
-### Carthage
-```
-github "recruit-lifestyle/AIRTimer"
-```
-
 ## Usage
 
 ```swift
@@ -36,6 +20,22 @@ timer.invalidate()
 
 // Restart: Returns a regenerated instance
 timer = timer.restart()
+```
+
+## Requirements
+* iOS8.0+
+* Xcode7.0+
+
+## Installation
+### CococaPods
+
+```ruby
+pod 'AIRTimer'
+```
+
+### Carthage
+```
+github "recruit-lifestyle/AIRTimer"
 ```
 
 ## Credit
