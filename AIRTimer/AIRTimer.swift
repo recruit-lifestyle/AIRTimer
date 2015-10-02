@@ -39,6 +39,10 @@ public final class AIRTimer {
         return NSTimer.scheduledTimerWithTimeInterval(self.interval, target: actor, selector: "fire", userInfo: self.userInfo, repeats: self.repeats)
     }()
     
+    public var valid: Bool {
+        return timer.valid
+    }
+    
     public class func after(interval: NSTimeInterval, userInfo: AnyObject? = nil, handler: TimerHandler) -> AIRTimer {
         let air = AIRTimer(timerInterval: interval, userInfo: userInfo, repeats: false, handler: handler)
         air.timer.fire()
