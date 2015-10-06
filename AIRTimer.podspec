@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'AIRTimer'
-  s.version = '1.0.0'
+  s.version = '1.0.2'
   s.summary = 'Restartable NSTimer in Swift.'
   s.homepage = 'https://github.com/recruit-lifestyle/AIRTimer'
   s.platform = :ios, '8.0'

@@ -34,24 +34,19 @@ public final class AIRTimer {
     public let userInfo: AnyObject?
     public let repeats: Bool
     private let handler: TimerHandler
-    private lazy var timer: NSTimer = { [unowned self] in
-        let actor = TimerActor(timer: self, handler: self.handler)
-        return NSTimer.scheduledTimerWithTimeInterval(self.interval, target: actor, selector: "fire", userInfo: self.userInfo, repeats: self.repeats)
-    }()
+    private var timer: NSTimer?
     
     public var valid: Bool {
-        return timer.valid
+        return timer?.valid ?? false
     }
     
     public class func after(interval: NSTimeInterval, userInfo: AnyObject? = nil, handler: TimerHandler) -> AIRTimer {
         let air = AIRTimer(timerInterval: interval, userInfo: userInfo, repeats: false, handler: handler)
-        air.timer.fire()
         return air
     }
 
     public class func every(interval: NSTimeInterval, userInfo: AnyObject? = nil, handler: TimerHandler) -> AIRTimer {
         let air = AIRTimer(timerInterval: interval, userInfo: userInfo, repeats: true, handler: handler)
-        air.timer.fire()
         return air
     }
     
@@ -60,18 +55,17 @@ public final class AIRTimer {
     
     - return: Regenerated AIRTimer. Your property should reference this.
     */
-    public func restart() -> AIRTimer {
+    public func restart() {
         invalidate()
-        let air = AIRTimer(timerInterval: interval, userInfo: userInfo, repeats: repeats, handler: handler)
-        air.timer.fire()
-        return air
+        self.timer = scheduledTimer()
     }
     
     /**
     Stops the receiver from ever firing again and requests its removal from its run loop.
     */
     public func invalidate() {
-        timer.invalidate()
+        timer?.invalidate()
+        timer = nil
     }
     
     private init(timerInterval interval: NSTimeInterval, userInfo: AnyObject?, repeats: Bool, handler: TimerHandler) {
@@ -79,5 +73,16 @@ public final class AIRTimer {
         self.userInfo = userInfo
         self.repeats = repeats
         self.handler = handler
+        self.timer = scheduledTimer()
+    }
+    
+    private func scheduledTimer() -> NSTimer {
+        let actor = TimerActor(timer: self, handler: self.handler)
+        return NSTimer.scheduledTimerWithTimeInterval(
+            self.interval,
+            target: actor,
+            selector: "fire",
+            userInfo: self.userInfo,
+            repeats: self.repeats)
     }
 }

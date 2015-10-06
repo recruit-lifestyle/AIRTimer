@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func restart(sender: UIButton) {
-        timer = timer?.restart()
+        timer?.restart()
         print("RESTART!!!")
     }
 
