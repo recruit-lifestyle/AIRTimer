@@ -42,13 +42,11 @@ public final class AIRTimer {
     
     public class func after(interval: NSTimeInterval, userInfo: AnyObject? = nil, handler: TimerHandler) -> AIRTimer {
         let air = AIRTimer(timerInterval: interval, userInfo: userInfo, repeats: false, handler: handler)
-        air.timer?.fire()
         return air
     }
 
     public class func every(interval: NSTimeInterval, userInfo: AnyObject? = nil, handler: TimerHandler) -> AIRTimer {
         let air = AIRTimer(timerInterval: interval, userInfo: userInfo, repeats: true, handler: handler)
-        air.timer?.fire()
         return air
     }
     
@@ -57,11 +55,9 @@ public final class AIRTimer {
     
     - return: Regenerated AIRTimer. Your property should reference this.
     */
-    public func restart() -> AIRTimer {
+    public func restart() {
         invalidate()
-        let air = AIRTimer(timerInterval: interval, userInfo: userInfo, repeats: repeats, handler: handler)
-        air.timer?.fire()
-        return air
+        self.timer = scheduledTimer()
     }
     
     /**
@@ -77,9 +73,12 @@ public final class AIRTimer {
         self.userInfo = userInfo
         self.repeats = repeats
         self.handler = handler
-        
+        self.timer = scheduledTimer()
+    }
+    
+    private func scheduledTimer() -> NSTimer {
         let actor = TimerActor(timer: self, handler: self.handler)
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(
+        return NSTimer.scheduledTimerWithTimeInterval(
             self.interval,
             target: actor,
             selector: "fire",
