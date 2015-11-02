@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		AAA14E901BB55DD500680395 /* AIRTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = AAA14E8F1BB55DD500680395 /* AIRTimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AAA14E971BB55DD500680395 /* AIRTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA14E8C1BB55DD500680395 /* AIRTimer.framework */; settings = {ASSET_TAGS = (); }; };
+		AAA14E971BB55DD500680395 /* AIRTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA14E8C1BB55DD500680395 /* AIRTimer.framework */; };
 		AAA14E9C1BB55DD500680395 /* AIRTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA14E9B1BB55DD500680395 /* AIRTimerTests.swift */; };
-		AAA14EA71BB55E1200680395 /* AIRTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA14EA61BB55E1200680395 /* AIRTimer.swift */; settings = {ASSET_TAGS = (); }; };
+		AAA14EA71BB55E1200680395 /* AIRTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA14EA61BB55E1200680395 /* AIRTimer.swift */; };
 		AAA14EAF1BB566D700680395 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA14EAE1BB566D700680395 /* AppDelegate.swift */; };
 		AAA14EB11BB566D700680395 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA14EB01BB566D700680395 /* ViewController.swift */; };
 		AAA14EB41BB566D700680395 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAA14EB21BB566D700680395 /* Main.storyboard */; };
@@ -415,6 +415,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AIRTimer/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.recruit-lifestyle.AIRTimer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -433,6 +434,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AIRTimer/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.recruit-lifestyle.AIRTimer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -501,6 +503,7 @@
 				AAA14EA21BB55DD500680395 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AAA14EA31BB55DD500680395 /* Build configuration list for PBXNativeTarget "AIRTimerTests" */ = {
 			isa = XCConfigurationList;
@@ -509,6 +512,7 @@
 				AAA14EA51BB55DD500680395 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AAA14EBB1BB566D700680395 /* Build configuration list for PBXNativeTarget "Example" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +521,7 @@
 				AAA14EBD1BB566D700680395 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
