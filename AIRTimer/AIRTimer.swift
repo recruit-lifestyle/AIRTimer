@@ -81,7 +81,7 @@ public final class AIRTimer {
         return NSTimer.scheduledTimerWithTimeInterval(
             self.interval,
             target: actor,
-            selector: "fire",
+            selector: #selector(TimerActor.fire),
             userInfo: self.userInfo,
             repeats: self.repeats)
     }
