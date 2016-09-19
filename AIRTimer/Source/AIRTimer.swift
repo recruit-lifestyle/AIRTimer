@@ -14,12 +14,13 @@ private final class TimerActor {
     let timer: AIRTimer
     let handler: TimerHandler
     
-    init(timer: AIRTimer, handler: TimerHandler) {
+    init(timer: AIRTimer, handler: @escaping TimerHandler) {
         self.timer = timer
         self.handler = handler
     }
     
-    @objc func fire() {
+    @objc
+    func fire() {
         handler(timer)
     }
 }
@@ -30,23 +31,29 @@ Restartable NSTimer Wrapper.
 > [You should not attempt to subclass NSTimer.](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSTimer_Class/)
 */
 public final class AIRTimer {
-    public let interval: NSTimeInterval
-    public let userInfo: AnyObject?
+    public let timerInterval: TimeInterval
+    public let userInfo: Any?
     public let repeats: Bool
     private let handler: TimerHandler
-    private var timer: NSTimer?
+    private var timer: Timer?
     
-    public var valid: Bool {
-        return timer?.valid ?? false
+    public var isValid: Bool {
+        return timer?.isValid ?? false
     }
     
-    public class func after(interval: NSTimeInterval, userInfo: AnyObject? = nil, handler: TimerHandler) -> AIRTimer {
-        let air = AIRTimer(timerInterval: interval, userInfo: userInfo, repeats: false, handler: handler)
+    public static func after(
+        timerInterval: TimeInterval,
+        userInfo: Any? = nil,
+        handler: @escaping TimerHandler) -> AIRTimer {
+        let air = AIRTimer(timerInterval: timerInterval, userInfo: userInfo, repeats: false, handler: handler)
         return air
     }
 
-    public class func every(interval: NSTimeInterval, userInfo: AnyObject? = nil, handler: TimerHandler) -> AIRTimer {
-        let air = AIRTimer(timerInterval: interval, userInfo: userInfo, repeats: true, handler: handler)
+    public static func every(
+        timerInterval: TimeInterval,
+        userInfo: Any? = nil,
+        handler: @escaping TimerHandler) -> AIRTimer {
+        let air = AIRTimer(timerInterval: timerInterval, userInfo: userInfo, repeats: true, handler: handler)
         return air
     }
     
@@ -68,18 +75,22 @@ public final class AIRTimer {
         timer = nil
     }
     
-    private init(timerInterval interval: NSTimeInterval, userInfo: AnyObject?, repeats: Bool, handler: TimerHandler) {
-        self.interval = interval
+    private init(
+        timerInterval: TimeInterval,
+        userInfo: Any?,
+        repeats: Bool,
+        handler: @escaping TimerHandler) {
+        self.timerInterval = timerInterval
         self.userInfo = userInfo
         self.repeats = repeats
         self.handler = handler
         self.timer = scheduledTimer()
     }
     
-    private func scheduledTimer() -> NSTimer {
+    private func scheduledTimer() -> Timer {
         let actor = TimerActor(timer: self, handler: self.handler)
-        return NSTimer.scheduledTimerWithTimeInterval(
-            self.interval,
+        return Timer.scheduledTimer(
+            timeInterval: self.timerInterval,
             target: actor,
             selector: #selector(TimerActor.fire),
             userInfo: self.userInfo,

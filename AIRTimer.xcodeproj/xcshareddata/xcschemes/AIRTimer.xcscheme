@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0800"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AAA14E8B1BB55DD500680395"
+               BlueprintIdentifier = "BF2AF2BE1D8F6C660046AF20"
                BuildableName = "AIRTimer.framework"
                BlueprintName = "AIRTimer"
                ReferencedContainer = "container:AIRTimer.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AAA14E951BB55DD500680395"
+               BlueprintIdentifier = "BF2AF2C71D8F6C660046AF20"
                BuildableName = "AIRTimerTests.xctest"
                BlueprintName = "AIRTimerTests"
                ReferencedContainer = "container:AIRTimer.xcodeproj">
@@ -42,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AAA14E8B1BB55DD500680395"
+            BlueprintIdentifier = "BF2AF2BE1D8F6C660046AF20"
             BuildableName = "AIRTimer.framework"
             BlueprintName = "AIRTimer"
             ReferencedContainer = "container:AIRTimer.xcodeproj">
@@ -64,7 +64,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AAA14E8B1BB55DD500680395"
+            BlueprintIdentifier = "BF2AF2BE1D8F6C660046AF20"
             BuildableName = "AIRTimer.framework"
             BlueprintName = "AIRTimer"
             ReferencedContainer = "container:AIRTimer.xcodeproj">
@@ -82,7 +82,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AAA14E8B1BB55DD500680395"
+            BlueprintIdentifier = "BF2AF2BE1D8F6C660046AF20"
             BuildableName = "AIRTimer.framework"
             BlueprintName = "AIRTimer"
             ReferencedContainer = "container:AIRTimer.xcodeproj">
