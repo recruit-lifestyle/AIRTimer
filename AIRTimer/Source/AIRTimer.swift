@@ -42,7 +42,7 @@ public final class AIRTimer {
     }
     
     public static func after(
-        timerInterval: TimeInterval,
+        _ timerInterval: TimeInterval,
         userInfo: Any? = nil,
         handler: @escaping TimerHandler) -> AIRTimer {
         let air = AIRTimer(timerInterval: timerInterval, userInfo: userInfo, repeats: false, handler: handler)
@@ -50,7 +50,7 @@ public final class AIRTimer {
     }
 
     public static func every(
-        timerInterval: TimeInterval,
+        _ timerInterval: TimeInterval,
         userInfo: Any? = nil,
         handler: @escaping TimerHandler) -> AIRTimer {
         let air = AIRTimer(timerInterval: timerInterval, userInfo: userInfo, repeats: true, handler: handler)
