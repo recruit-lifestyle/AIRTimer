@@ -2,8 +2,8 @@
 //  AIRTimer.h
 //  AIRTimer
 //
-//  Created by Yuki Nagai on 9/25/15.
-//  Copyright © 2015 Yuki Nagai. All rights reserved.
+//  Created by Yuki Nagai on 9/19/16.
+//  Copyright © 2016 Recruit Lifestyle Co., Ltd. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
